@@ -4,6 +4,8 @@
 		<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
 		<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 	</head>
 	<body>
@@ -11,6 +13,22 @@
 		<p>
 			This is my first html page with some 3d objects.
 		</p>
+		<div id="dialog" title="Dialog Form">
+			<form action="" method="post">
+				<label>Name:</label>
+				<input id="name" name="name" type="text"> </br>
+				<label>url:</label> </br>
+				<input id="url" name="url" type="url">
+				<label for="category">Select a category</label>
+    		<select name="category" id="category">
+      	<option selected="selected">Sport</option>
+      	<option>Technology</option>
+      	<option>Fasion</option>
+      	<option>Astronomy</option>
+    		</select>
+				<input id="submit" type="submit" value="Submit">
+			</form>
+		</div>
 
 		<x3d width='800px' height='600px'showStat="true">
 			<scene id="root">
@@ -24,7 +42,7 @@
 					</shape>
 				</transform>
 				<transform translation='0 2 0'>
-					<shape onclick="addNode();">
+					<shape id="guestbook" onclick="addNode();">
 						<appearance>
 						<material diffuseColor='0 0 1' ></material>
 						</appearance>
@@ -101,6 +119,29 @@
 
         return false;
     };
+
+		$(document).ready(function() {
+			$(function() {
+				$("#dialog").dialog({
+					autoOpen: false
+				});
+				$("#guestbook").on("click", function() {
+					$("#dialog").dialog("open");
+				});
+			});
+			// Validating Form Fields
+			$("#submit").click(function(e) {
+				var email = $("#url").val();
+				var name = $("#name").val();
+				if (email === '' || name === '') {
+					alert("Please fill all fields!");
+					e.preventDefault();
+				}
+				else {
+					alert("Form Submitted Successfully.");
+				}
+			});
+		});
 
 	</script>
 
