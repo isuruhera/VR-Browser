@@ -1,41 +1,41 @@
-<html> 
-	<head> 
-		<title>My first X3DOM page</title> 			
-		<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script> 
-		<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link> 
-		
-		
-	</head> 
-	<body> 
-		<h1>Hello, X3DOM!</h1> 
-		<p> 
-			This is my first html page with some 3d objects. 
-		</p> 
-		
-		<x3d width='800px' height='600px'showStat="true"> 
+<html>
+	<head>
+		<title>My first X3DOM page</title>
+		<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+		<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	</head>
+	<body>
+		<h1>Hello, X3DOM!</h1>
+		<p>
+			This is my first html page with some 3d objects.
+		</p>
+
+		<x3d width='800px' height='600px'showStat="true">
 			<scene id="root">
-				<inline url="room.x3d"> </inline> 
-				<transform translation='0 .5 0'> 
-					<shape> 
-						<appearance> 
-							<material diffuseColor='1 0 0' ></material> 
-						</appearance> 
-						<box size="1,1,1"></box> 
-					</shape> 
+				<inline url="room.x3d"> </inline>
+				<transform translation='0 .5 0'>
+					<shape>
+						<appearance>
+							<material diffuseColor='1 0 0' ></material>
+						</appearance>
+						<box size="1,1,1"></box>
+					</shape>
 				</transform>
-				<transform translation='0 2 0'> 
-					<shape onclick="addNode();"> 
-						<appearance> 
-						<material diffuseColor='0 0 1' ></material> 
-						</appearance> 
-						<sphere radius=".2"></sphere> 
-					</shape> 
+				<transform translation='0 2 0'>
+					<shape onclick="addNode();">
+						<appearance>
+						<material diffuseColor='0 0 1' ></material>
+						</appearance>
+						<sphere radius=".2"></sphere>
+					</shape>
 				</transform>
 			</scene>
-			
-		</x3d>    
-	
-	<script> 
+
+		</x3d>
+
+	<script>
      function changeColor()
      {
         if(document.getElementById("color").getAttribute('diffuseColor')=="1 0 0")
@@ -43,51 +43,51 @@
         else
            document.getElementById("color").setAttribute('diffuseColor', '1 0 0');
      }
-	 
-	 
-</script> 
+
+
+</script>
 
 <script type="text/javascript">
-	    
+
     function addNode()
     {
 		x = Math.random() * 1 - 0;
 		//y = Math.random() * 6 - 3;
 		y=1.5
 		z = Math.random() * 1 - 0;
-	
+
 		s0 = Math.random() + 0.5;
 		s1 = Math.random() + 0.5;
 		s2 = Math.random() + 0.5;
-		
-		
+
+
         var t = document.createElement('Transform');
         t.setAttribute("translation", x + " " + y + " " + z );
         t.setAttribute("scale", s0 + " " + s1 + " " + s2 );
-        
+
 		var s = document.createElement('Shape');
-		
+
 		// Appearance Node
 		var app = document.createElement('Appearance');
-		
+
 		// Material Node
 		var mat = document.createElement('Material');
-		
+
 		app.appendChild(mat);
-		
+
 		s.appendChild(app);
-		
+
         t.appendChild(s);
         var b = document.createElement('Box');
 		b.setAttribute("size","0.2,0.2,0.2");
         s.appendChild(b);
-        
+
         var ot = document.getElementById('root');
         ot.appendChild(t);
-        
+
         return false;
     };
-    
+
     function removeNode()
     {
         var ot = document.getElementById('root');
@@ -98,12 +98,12 @@
   				break;
   			}
   		}
-        
+
         return false;
     };
-    
+
 	</script>
-	
-	
-	</body> 
-</html>   
+
+
+	</body>
+</html>
