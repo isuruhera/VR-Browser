@@ -1,4 +1,4 @@
-<script type="text/javascript">
+{/* <script type="text/javascript">
     function addNode()
     {
 		x = Math.random() * 1 - 0 ;
@@ -61,4 +61,4 @@
 				}
 			});
 		});
-	</script>
+	</script> */}
