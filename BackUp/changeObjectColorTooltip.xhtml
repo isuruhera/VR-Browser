@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>HTML Events on 3D objects</title>
+        <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+        <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+          $(document).ready(function(){
+            $("#changeColor").mouseover(function(){
+              $("#color").attr("diffuseColor", "0 1 0");
+              $("#switcher").attr("whichChoice", "0");
+            });
+            $("#changeColor").mouseout(function(){
+              $("#color").attr("diffuseColor", "0 0 1");
+              $("#switcher").attr("whichChoice", "-1");
+            });
+          });
+        </script>
+
+	</head>
+
+<body>
+
+    <h1>HTML Events on 3D objects</h1>
+	Experimental 'onclick' event on 3D objects (that is still totally open for discussion). <br />
+	Just click on one of the objects... The current state only shows what are we aiming at. <br />
+
+	<p>
+		<X3D xmlns="http://www.web3d.org/specifications/x3d-namespace" id="boxes" showStat="true" showLog="true" x="0px" y="0px" width="500px" height="500px">
+			<Scene>
+				<Viewpoint centerOfRotation="0 0 0" position="0 0 15" orientation="0 1 0 0" />
+				<Background skyColor='.95 .95 .95' />
+
+                <Group onclick="document.getElementById('bar').setAttribute('translation', event.hitPnt);">
+
+				<Transform DEF="coneTrafo" translation="-4.5 0 0">
+					<Shape DEF="coneShape">
+						<Appearance DEF="coneApp">
+							<Material diffuseColor="0 1 0" specularColor=".5 .5 .5" />
+						</Appearance>
+						<Cone DEF="cone" onclick="location.href='http://google.com';"/>
+					</Shape>
+				</Transform>
+
+				<Transform DEF="boxTrafo" translation='-1.5 0 0'>
+					<Shape DEF="boxShape" onclick="location.href='https://www.youtube.com/watch?v=FQsBmnZvBdc';">
+						<Appearance DEF="boxApp">
+							<Material diffuseColor="1 0 0" specularColor=".5 .5 .5" />
+						</Appearance>
+						<Box DEF="box"/>
+					</Shape>
+				</Transform>
+
+				<Transform id="changeColor" DEF="sphereTrafo" translation="1.5 0 0">
+					<Shape DEF="sphereShape" onclick="location.href='https://www.youtube.com/watch?v=FQsBmnZvBdc;'">
+						<Appearance DEF="sphereApp">
+							<Material id="color" diffuseColor="0 0 1" specularColor=".5 .5 .5" />
+						</Appearance>
+						<Sphere DEF="sphere"/>
+					</Shape>
+				</Transform>
+<Switch whichChoice="-1" id="switcher">
+				<Transform DEF="cylinderTrafo" translation="1.5 1.2 0">
+					<Shape DEF="cylinderShape">
+						<Appearance DEF="cylinderApp">
+							<Material diffuseColor="1 1 0" specularColor=".5 .5 .5" />
+						</Appearance>
+						<text string="tooltips......." solid='false'>
+							<fontstyle family="'Times' 'Orbitron'" size="0.8" justify="begin"></fontstyle>
+						</text>
+					</Shape>
+				</Transform>
+</Switch>
+                </Group>
+
+                <Transform id="bar" DEF="foo" scale=".15 .15 .15">
+					<Shape>
+						<Appearance>
+							<Material diffuseColor="olivedrab" specularColor="peachpuff" />
+						</Appearance>
+						<Sphere />
+					</Shape>
+        </Transform>
+
+
+			</Scene>
+        </X3D>
+	</p>
+
+	<p> &nbsp; </p>
+
+
+</body>
+</html>
