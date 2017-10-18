@@ -73,9 +73,165 @@
 
     </script>
 
+<script type="text/javascript">
 
-</head>
+    function addNode()
+    {
+		x = Math.random() * 1 - 0;
+		//y = Math.random() * 6 - 3;
+		y=1.5
+		z = Math.random() * 1 - 0;
 
+		s0 = Math.random() + 0.5;
+		s1 = Math.random() + 0.5;
+		s2 = Math.random() + 0.5;
+
+
+        var t = document.createElement('Transform');
+        t.setAttribute("translation", x + " " + y + " " + z );
+        t.setAttribute("scale", s0 + " " + s1 + " " + s2 );
+
+		var s = document.createElement('Shape');
+
+		// Appearance Node
+		var app = document.createElement('Appearance');
+
+		// Material Node
+		var mat = document.createElement('Material');
+
+		app.appendChild(mat);
+
+		s.appendChild(app);
+
+        t.appendChild(s);
+        var b = document.createElement('Box');
+		b.setAttribute("size","0.2,0.2,0.2");
+        s.appendChild(b);
+
+        var ot = document.getElementById('root');
+        ot.appendChild(t);
+
+        return false;
+    };
+
+    function removeNode()
+    {
+        var ot = document.getElementById('root');
+        for (var i = 0; i < ot.childNodes.length; i++) {
+        	// check if we have a real X3DOM Node; not just e.g. a Text-tag
+        	if (ot.childNodes[i].nodeType === Node.ELEMENT_NODE) {
+        		ot.removeChild(ot.childNodes[i]);
+  				break;
+  			}
+  		}
+
+        return false;
+    };
+
+		$(document).ready(function() {
+			$(function() {
+				$("#dialog").dialog({
+					autoOpen: false
+				});
+				$("#guestbook").on("click", function() {
+					$("#dialog").dialog("open");
+				});
+			});
+			// Validating Form Fields
+			$("#submit").click(function(e) {
+				var email = $("#url").val();
+				var name = $("#name").val();
+				if (email === '' || name === '') {
+					alert("Please fill all fields!");
+					e.preventDefault();
+				}
+				else {
+					alert("Form Submitted Successfully.");
+				}
+			});
+		});
+
+	</script>
+
+    <script type="text/javascript">
+
+    function addNode()
+    {
+		x = Math.random() * 1 - 0;
+		//y = Math.random() * 6 - 3;
+		y=1.5
+		z = Math.random() * 1 - 0;
+
+		s0 = Math.random() + 0.5;
+		s1 = Math.random() + 0.5;
+		s2 = Math.random() + 0.5;
+
+
+        var t = document.createElement('Transform');
+        t.setAttribute("translation", x + " " + y + " " + z );
+        t.setAttribute("scale", s0 + " " + s1 + " " + s2 );
+
+		var s = document.createElement('Shape');
+
+		// Appearance Node
+		var app = document.createElement('Appearance');
+
+		// Material Node
+		var mat = document.createElement('Material');
+
+		app.appendChild(mat);
+
+		s.appendChild(app);
+
+        t.appendChild(s);
+        var b = document.createElement('Box');
+		b.setAttribute("size","0.2,0.2,0.2");
+        s.appendChild(b);
+
+        var ot = document.getElementById('root');
+        ot.appendChild(t);
+
+        return false;
+    };
+
+    function removeNode()
+    {
+        var ot = document.getElementById('root');
+        for (var i = 0; i < ot.childNodes.length; i++) {
+        	// check if we have a real X3DOM Node; not just e.g. a Text-tag
+        	if (ot.childNodes[i].nodeType === Node.ELEMENT_NODE) {
+        		ot.removeChild(ot.childNodes[i]);
+  				break;
+  			}
+  		}
+
+        return false;
+    };
+
+		$(document).ready(function() {
+			$(function() {
+				$("#dialog").dialog({
+					autoOpen: false
+				});
+				$("#guestbook").on("click", function() {
+					$("#dialog").dialog("open");
+				});
+			});
+			// Validating Form Fields
+			$("#submit").click(function(e) {
+				var email = $("#url").val();
+				var name = $("#name").val();
+				if (email === '' || name === '') {
+					alert("Please fill all fields!");
+					e.preventDefault();
+				}
+				else {
+					alert("Form Submitted Successfully.");
+				}
+			});
+		});
+
+	</script>
 <body>
 
     <!-- Add div -->
@@ -265,7 +421,23 @@
 
     <x3d width='1200px' height='800px'>
         <scene>
+<Transform DEF="PopUpAdd_TRANSFORM"
+		           translation="4 4 4"
+		           rotation="-0.281085 -0.678598 -0.678598 2.593564"
+		           >
+		
+				<!--<Group DEF="group_ME_Sports">-->
+                        <Shape>
+                            <Appearance>
+                               
+                                    
+                            </Appearance>
 
+                            <box size="4 0.1 4"></box>
+                        </Shape>
+                    <!--</Group>-->
+			<!--</Transform>-->
+		</Transform>
             <!-- Walls -->
             <Transform DEF="lWall_TRANSFORM" translation="-7.000000 4.000000 0.000000" scale="0.250000 7.000000 4.000000" rotation="0.000000 0.707107 0.707107 3.141593">
                 <Transform DEF="lWall_ifs_TRANSFORM" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="1.000000 0.000000 0.000000 0.000000">
@@ -458,8 +630,7 @@
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="resources/the-games-logo.jpg">
-                                    <!-- <Material DEF="MA_Material_001" diffuseColor="0.800 0.008 0.013" specularColor="0.401 0.401 0.401" emissiveColor="0.000 0.000 0.000"
-                                            ambientIntensity="0.333" shininess="0.098" transparency="0.0" /> -->
+                                    
                             </Appearance>
 
                             <box size="2 2 .001"></box>
