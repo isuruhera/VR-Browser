@@ -40,14 +40,14 @@ function initialCreate(jObj) {
     }
     for (i = 0; i < jObj.length; i++) {
 
-        generateCordinate(jObj[i].Category);
+        generateCordinate(jObj[i].Category, jObj[i].Url);
     }
     
 
 }
 
 
-function generateCordinate(jObj) {
+function generateCordinate(jObj,gUrl) {
     switch (jObj) {
         case "Scenery":
 
@@ -67,7 +67,7 @@ function generateCordinate(jObj) {
                 }
 
 
-                addBookElement(x, y, z, ct);
+                addBookElement(x, y, z, ct, gUrl);
 
                 gCodinateObj = { "x": x, "y": y, "z": z, "count": ct };
                 gCodinateJSON = JSON.stringify(gCodinateObj);
@@ -95,7 +95,7 @@ function generateCordinate(jObj) {
                     ct = obj.count + 1;
                 }
 
-                addBookElement(x, y, z, ct);
+                addBookElement(x, y, z, ct, gUrl);
 
                 gCodinateObj = { "x": x, "y": y, "z": z, "count": ct };
                 gCodinateJSON = JSON.stringify(gCodinateObj);
@@ -125,7 +125,7 @@ function generateCordinate(jObj) {
                     ct = obj.count + 1;
                 }
 
-                addBookElement(x, y, z, ct);
+                addBookElement(x, y, z, ct, gUrl);
                 gCodinateObj = { "x": x, "y": y, "z": z, "count": ct };
                 gCodinateJSON = JSON.stringify(gCodinateObj);
                 localStorage.setItem("ArchitectureCordinate", gCodinateJSON);
@@ -139,17 +139,14 @@ function generateCordinate(jObj) {
     }
 
 }
-function addBookElement(x,y,z,ct) {
-    //var x = -3.8;
-    //var y = 4.8;
-    //var z = 0.2 + 2.1;
-
+function addBookElement(x, y, z, ct, gUrl) {
+    
     var t = document.createElement('Transform');
     t.setAttribute("translation", x + " " + z + " " + y);
 
-    var s = document.createElement('Shape');
-
-    // Appearance Node
+    var s = document.createElement("Shape");
+    s.setAttribute("onclick", "window.open('http://" + gUrl + "', '_blank');");
+    
     var app = document.createElement('Appearance');
 
     // Material Node
@@ -191,17 +188,20 @@ function loadData() {
 
 function addNode() {
     var cat = $('#category').val();
-    generateCordinate(cat);
+    var url = $('#txtUrl').val();
+    generateCordinate(cat,url);
 }
 
 
 function addNodePop() {
     $("#dialog-formAdd").dialog("open");
-
+    $('#txtName').val('');
+    $('#txtUrl').val('');
+    $('#category').val('..Select..');
 }
 
-function editNodePop() {
-    window.open('https://www.facebook.com/', '_blank');
+function OpenNodeUrl(ur) {
+    window.open('+ur+', '_blank');
 
 }
 

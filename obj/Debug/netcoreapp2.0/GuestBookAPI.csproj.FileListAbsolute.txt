@@ -2,10 +2,10 @@ C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\bin\Debug\netcore
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\bin\Debug\netcoreapp2.0\GuestBookAPI.runtimeconfig.json
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\bin\Debug\netcoreapp2.0\GuestBookAPI.runtimeconfig.dev.json
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\bin\Debug\netcoreapp2.0\GuestBookAPI.dll
+C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\bin\Debug\netcoreapp2.0\GuestBookAPI.pdb
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\obj\Debug\netcoreapp2.0\GuestBookAPI.csprojResolveAssemblyReference.cache
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\obj\Debug\netcoreapp2.0\GuestBookAPI.csproj.CoreCompileInputs.cache
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\obj\Debug\netcoreapp2.0\GuestBookAPI.AssemblyInfoInputs.cache
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\obj\Debug\netcoreapp2.0\GuestBookAPI.AssemblyInfo.cs
-C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\bin\Debug\netcoreapp2.0\GuestBookAPI.pdb
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\obj\Debug\netcoreapp2.0\GuestBookAPI.dll
 C:\Users\Anjalee Ovitigala\Documents\GuestBookAPI\GuestBookAPI\obj\Debug\netcoreapp2.0\GuestBookAPI.pdb
